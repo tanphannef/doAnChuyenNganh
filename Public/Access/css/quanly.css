@@ -1,0 +1,178 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar mặc định */
+.sidebar {
+    width: 60px; 
+    background-color: #4e73df;
+    color: white;
+    padding: 20px 10px; 
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    transition: width 0.3s ease; 
+    overflow: hidden; 
+}
+
+/* Khi hover vào sidebar */
+.sidebar:hover {
+    width: 250px; 
+    transition: width 0.3s ease; 
+}
+
+/* Tiêu đề trong sidebar */
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* Hiển thị tiêu đề khi hover */
+.sidebar:hover h2 {
+    opacity: 1; 
+}
+
+/* Danh sách menu */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: nowrap; 
+    opacity: 0; 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transform: translateX(-20px); 
+}
+
+/* Hiển thị menu khi hover */
+.sidebar:hover ul li a {
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+/* Hiệu ứng hover vào từng mục menu */
+.sidebar ul li a:hover {
+    background-color:#727272; 
+}
+/* === MEDIA QUERIES FOR MOBILE === */
+@media screen and (max-width: 768px) {
+    /* Sidebar - Thu gọn hoàn toàn */
+    .sidebar {
+        width: 50px; /* Thu nhỏ hơn cho mobile */
+        padding: 10px 5px;
+        transition: width 0.3s ease;
+    }
+
+    .sidebar:hover {
+        width: 200px; /* Mở rộng khi hover */
+    }
+
+    .sidebar h2 {
+        font-size: 14px; /* Giảm kích thước chữ */
+        opacity: 0; /* Ẩn tiêu đề trên mobile */
+    }
+
+    .sidebar:hover h2 {
+        opacity: 1; /* Hiển thị tiêu đề khi hover */
+    }
+
+    .sidebar ul li a {
+        font-size: 14px; /* Giảm kích thước chữ */
+        padding: 8px; /* Giảm padding */
+    }
+
+    .sidebar ul li a i {
+        font-size: 18px; /* Thu nhỏ icon */
+    }
+
+    /* Header */
+    .main-header {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Biểu đồ - Đặt chiều cao cố định */
+    .real-time-chart canvas {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Sidebar - Thu gọn hoàn toàn */
+    .sidebar {
+        width: 50px; /* Sidebar nhỏ hơn nữa */
+    }
+
+    .sidebar:hover {
+        width: 150px; /* Thu hẹp độ mở rộng */
+    }
+
+    .sidebar ul li a {
+        font-size: 12px; /* Kích thước chữ nhỏ */
+    }
+
+    .sidebar ul li a i {
+        font-size: 16px; /* Thu nhỏ icon hơn nữa */
+    }
+
+    /* Header */
+    .main-header {
+        padding: 8px;
+        font-size: 14px; /* Giảm kích thước font */
+    }
+
+    /* Biểu đồ */
+    .real-time-chart canvas {
+        height: 200px; /* Đặt chiều cao thấp hơn */
+    }
+
+    /* Ẩn tiêu đề hoặc điều chỉnh */
+    .real-time-chart h2 {
+        font-size: 16px;
+    }
+}
+
+/* === CSS CHO FOOTER === */
+.footer {
+    flex-shrink: 0; 
+    width: calc(100% - 60px);
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar:hover ~ .footer {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}

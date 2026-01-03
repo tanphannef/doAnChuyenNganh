@@ -1,0 +1,136 @@
+/* Định dạng chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+/* Sidebar mặc định */
+.sidebar {
+    width: 60px; 
+    background-color: #DEAD6F;
+    color: white;
+    padding: 20px 10px; 
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    transition: width 0.3s ease; 
+    overflow: hidden; 
+}
+
+/* Khi hover vào sidebar */
+.sidebar:hover {
+    width: 250px; 
+    transition: width 0.3s ease; 
+}
+
+/* Tiêu đề trong sidebar */
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* Hiển thị tiêu đề khi hover */
+.sidebar:hover h2 {
+    opacity: 1; /* Hiện tiêu đề */
+}
+
+/* Danh sách menu */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: nowrap; 
+    opacity: 0; 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transform: translateX(-20px); 
+}
+
+/* Hiển thị menu khi hover */
+.sidebar:hover ul li a {
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+/* Hiệu ứng hover vào từng mục menu */
+.sidebar ul li a:hover {
+    background-color: #727272; 
+}
+
+/* Main content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+}
+
+.main-header {
+    background-color: #DEAD6F;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.content-section {
+    display: none;
+    margin-top: 20px;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.content-section p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Chỉnh sửa font chữ cho mobile và các màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+    }
+
+    .sidebar:hover {
+        width: 150px; /* Mở rộng hơn khi hover trên mobile */
+    }
+
+    .sidebar h2 {
+        font-size: 14px;
+        opacity: 0;
+    }
+
+    .sidebar:hover h2 {
+        opacity: 1; /* Hiển thị lại tiêu đề khi hover */
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+
+    .sidebar ul li a i {
+        font-size: 18px;
+    }
+}

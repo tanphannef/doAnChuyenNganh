@@ -1,0 +1,337 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar mặc định */
+.sidebar {
+    width: 60px; 
+    background-color:#4e73df;
+    color: white;
+    padding: 20px 10px; 
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    transition: width 0.3s ease; 
+    overflow: hidden; 
+}
+
+/* Khi hover vào sidebar */
+.sidebar:hover {
+    width: 250px; 
+    transition: width 0.3s ease; 
+}
+
+/* Tiêu đề trong sidebar */
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* Hiển thị tiêu đề khi hover */
+.sidebar:hover h2 {
+    opacity: 1; 
+}
+
+/* Danh sách menu */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: nowrap; 
+    opacity: 0; 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transform: translateX(-20px); 
+}
+
+/* Hiển thị menu khi hover */
+.sidebar:hover ul li a {
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+/* Hiệu ứng hover vào từng mục menu */
+.sidebar ul li a:hover {
+    background-color:#727272; 
+}
+
+
+.dashboard {
+    margin-left: 270px;
+    width: calc(100% - 270px);
+    padding: 20px;
+}
+
+/* Header chính */
+.main-header {
+    background-color: #DEAD6F; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    border-radius: 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: fixed;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 24px; 
+    font-weight: bold; 
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.stat-item p {
+    font-size: 24px;
+    color: #4e73df;
+}
+
+.chart {
+    margin: 20px 0;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pie-chart {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.pie-chart svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.pie-chart circle {
+    fill: none;
+    stroke-width: 32;
+    stroke-dasharray: 25 75;
+    transform: scale(0.5);
+    transform-origin: 50% 50%;
+}
+
+.slice-vatdung {
+    stroke: #4CAF50;
+    stroke-dasharray: 40 60;
+}
+
+.slice-thucan {
+    stroke: #FFC107;
+    stroke-dasharray: 30 70;
+    stroke-dashoffset: 40;
+}
+
+.slice-phukien {
+    stroke: #2196F3;
+    stroke-dasharray: 20 80;
+    stroke-dashoffset: 70;
+}
+
+.slice-thucung {
+    stroke: #F44336;
+    stroke-dasharray: 10 90;
+    stroke-dashoffset: 90;
+}
+
+.legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.legend-box.vatdung {
+    background: #4CAF50;
+}
+
+.legend-box.thucan {
+    background: #FFC107;
+}
+
+.legend-box.phukien {
+    background: #2196F3;
+}
+
+.legend-box.thucung {
+    background: #F44336;
+}
+
+/* Biểu đồ thời gian thực */
+.real-time-chart {
+    margin: 20px 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.real-time-chart h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color:  #DEAD6F;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === MEDIA QUERIES FOR MOBILE === */
+@media screen and (max-width: 768px) {
+    /* Sidebar - Thu gọn hoàn toàn */
+    .sidebar {
+        width: 50px; /* Thu nhỏ hơn cho mobile */
+        padding: 10px 5px;
+        transition: width 0.3s ease;
+    }
+
+    .sidebar:hover {
+        width: 200px; /* Mở rộng khi hover */
+    }
+
+    .sidebar h2 {
+        font-size: 14px; /* Giảm kích thước chữ */
+        opacity: 0; /* Ẩn tiêu đề trên mobile */
+    }
+
+    .sidebar:hover h2 {
+        opacity: 1; /* Hiển thị tiêu đề khi hover */
+    }
+
+    .sidebar ul li a {
+        font-size: 14px; /* Giảm kích thước chữ */
+        padding: 8px; /* Giảm padding */
+    }
+
+    .sidebar ul li a i {
+        font-size: 18px; /* Thu nhỏ icon */
+    }
+
+    /* Header */
+    .main-header {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Biểu đồ - Đặt chiều cao cố định */
+    .real-time-chart canvas {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Sidebar - Thu gọn hoàn toàn */
+    .sidebar {
+        width: 50px; /* Sidebar nhỏ hơn nữa */
+    }
+
+    .sidebar:hover {
+        width: 150px; /* Thu hẹp độ mở rộng */
+    }
+
+    .sidebar ul li a {
+        font-size: 12px; /* Kích thước chữ nhỏ */
+    }
+
+    .sidebar ul li a i {
+        font-size: 16px; /* Thu nhỏ icon hơn nữa */
+    }
+
+    /* Header */
+    .main-header {
+        padding: 8px;
+        font-size: 14px; /* Giảm kích thước font */
+    }
+
+    /* Biểu đồ */
+    .real-time-chart canvas {
+        height: 200px; /* Đặt chiều cao thấp hơn */
+    }
+
+    /* Ẩn tiêu đề hoặc điều chỉnh */
+    .real-time-chart h2 {
+        font-size: 16px;
+    }
+}
+
+/* === CSS CHO FOOTER === */
+.footer {
+    flex-shrink: 0; 
+    width: calc(100% - 60px);
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar:hover ~ .footer {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
